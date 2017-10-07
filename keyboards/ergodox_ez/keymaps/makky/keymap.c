@@ -22,9 +22,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |Back  |           | ALT+ |   Y  |   U  |   I  |   O  |   P  |BackSpace|
  * |--------+------+------+------+------+------|space |           | RIGHT|------+------+------+------+------+--------|
- * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |Ctrl/;| Enter  |
+ * |Ctrl    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |Ctrl/;| Enter  |
  * |--------+------+------+------+------+------| LAlt+|           | ALT+ |------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |BackSp|           | LEFT |   N  |   M  |   ,  |   .  |Ctrl//| RShift |
+ * |LShift |Z/gui+sift| X |   C  |   V  |   B  |BackSp|           | LEFT |   N  |   M  |   ,  | . |//gui+sift| RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |LEFT  | DOWN |KC_UP | LAlt | LGUI |                                       |  RGUI|ALT/LFT| DOWN|  UP  | RIGHT  |
  *   `----------------------------------'                                       `----------------------------------'
@@ -40,21 +40,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_GRV,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   LSFT(LGUI(LALT(LCTL(KC_LEFT)))),
-        KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_BSPC,
-        CTL_T(KC_ESC),  KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_LSFT,        CTL_T(KC_Z),  KC_X,   KC_C,   KC_V,   KC_B,   LALT(KC_BSPC),
-        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT,KC_LGUI,
+        KC_GRV,         KC_1,                  KC_2,   KC_3,   KC_4,   KC_5,   LSFT(LGUI(LALT(LCTL(KC_LEFT)))),
+        KC_TAB,         KC_Q,                  KC_W,   KC_E,   KC_R,   KC_T,   KC_BSPC,
+        KC_LCTL,        KC_A,                  KC_S,   KC_D,   KC_F,   KC_G,
+        KC_LSFT, MT(MOD_LGUI | MOD_LSFT, KC_Z),KC_X,   KC_C,   KC_V,   KC_B,   LALT(KC_BSPC),
+        KC_LEFT,        KC_DOWN,               KC_UP,  KC_LALT,KC_LGUI,
                                               TG(SYMB),      LSFT(LGUI(LALT(LCTL(KC_1)))),
                                                              LSFT(LGUI(LALT(LCTL(KC_2)))),
                                               KC_SPC, KC_ENT,LSFT(LGUI(LALT(LCTL(KC_3)))),
         // right hand
         RSFT(RGUI(RALT(RCTL(KC_RIGHT)))),
-                        KC_6,   KC_7,   KC_8,           KC_9,   KC_0,           KC_DEL,
-        RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,           KC_BSPC,
-                        KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN), KC_ENT,
-        RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, CTL_T(KC_SLSH), KC_RSFT,
-                                KC_RGUI,RALT_T(KC_LEFT),KC_DOWN,KC_UP,          KC_RIGHT,
+                        KC_6,   KC_7,   KC_8,           KC_9,   KC_0,                             KC_DEL,
+        RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,                             KC_BSPC,
+                        KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN),                   KC_ENT,
+        RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, MT(MOD_RGUI | MOD_RSFT, KC_SLSH), KC_RSFT,
+                                KC_RGUI,RALT_T(KC_LEFT),KC_DOWN,KC_UP,                            KC_RIGHT,
         KC__VOLUP,   TG(WIN),
         KC__VOLDOWN,
         KC__MUTE,    MO(SYMB), KC_SPC
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|space |           | RIGHT|------+------+------+------+------+--------|
  * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |Ctrl/;| Enter  |
  * |--------+------+------+------+------+------| LAlt+|           | ALT+ |------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |BackSp|           | LEFT |   N  |   M  |   ,  |   .  |Ctrl//| RShift |
+ * |LShift |Z/gui+sift| X |   C  |   V  |   B  |BackSp|           | LEFT |   N  |   M  |   ,  | . |//gui+sift| RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |LEFT  | DOWN |KC_UP | LAlt |Muhenkan|                                     |Henkan|ALT/LFT| DOWN|  UP  | RIGHT  |
  *   `----------------------------------'                                       `----------------------------------'
@@ -125,21 +125,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // MEDIA AND MOUSE
 [WIN] = LAYOUT_ergodox(
         // left hand
-        KC_GRV,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   LSFT(LGUI(LALT(LCTL(KC_LEFT)))),
-        KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_BSPC,
-        CTL_T(KC_ESC),  KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_LSFT,        CTL_T(KC_Z),  KC_X,   KC_C,   KC_V,   KC_B,   LALT(KC_BSPC),
-        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT,KC_MHEN,
+        KC_GRV,         KC_1,                  KC_2,   KC_3,   KC_4,   KC_5,   LSFT(LGUI(LALT(LCTL(KC_LEFT)))),
+        KC_TAB,         KC_Q,                  KC_W,   KC_E,   KC_R,   KC_T,   KC_BSPC,
+        CTL_T(KC_ESC),  KC_A,                  KC_S,   KC_D,   KC_F,   KC_G,
+        KC_LSFT, MT(MOD_LGUI | MOD_LSFT, KC_Z),KC_X,   KC_C,   KC_V,   KC_B,   LALT(KC_BSPC),
+        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT,KC_LANG2,
                                               TG(SYMB),      KC_LGUI,
                                                              LSFT(LGUI(LALT(LCTL(KC_2)))),
                                               KC_SPC, KC_ENT,LSFT(LGUI(LALT(LCTL(KC_3)))),
         // right hand
         RSFT(RGUI(RALT(RCTL(KC_RIGHT)))),
-                        KC_6,   KC_7,   KC_8,           KC_9,   KC_0,           KC_DEL,
-        RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,           KC_BSPC,
-                        KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN), KC_ENT,
-        RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, CTL_T(KC_SLSH), KC_RSFT,
-                                KC_HENK,RALT_T(KC_LEFT),KC_DOWN,KC_UP,          KC_RIGHT,
+                        KC_6,   KC_7,   KC_8,           KC_9,   KC_0,                             KC_DEL,
+        RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,                             KC_BSPC,
+                        KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN),                   KC_ENT,
+        RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, MT(MOD_RGUI | MOD_RSFT, KC_SLSH), KC_RSFT,
+                                KC_LANG1,RALT_T(KC_LEFT),KC_DOWN,KC_UP,                           KC_RIGHT,
         KC__VOLUP,   TG(WIN),
         KC__VOLDOWN,
         KC__MUTE,    MO(SYMB), KC_SPC
