@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        |TG(SYMB|  LGUI   |    | VOLUP|TG(MEDIA|
  *                                 ,------|-------|---------|    |------+--------+------.
  *                                 |      |       |S+G+A+C+2|    |VOLDWN|        |      |
- *                                 | Space|Enter  |---------|    |------|MO(SYMB)|Space |
+ *                                 | Space|Enter  |---------|    |------|        |Space |
  *                                 |      |       |S+G+A+C+3|    |MUTE  |        |      |
  *                                 `-----------------------'    `----------------------'
  */
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         KC_Q,                  KC_W,   KC_E,   KC_R,   KC_T,   KC_BSPC,
         CTL_T(KC_ESC),  KC_A,                  KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT, MT(MOD_LGUI | MOD_LSFT, KC_Z),KC_X,   KC_C,   KC_V,   KC_B,   LALT(KC_BSPC),
-        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT,KC_LANG2,
+        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT,KC_MHEN,
                                               TG(SYMB),      KC_LGUI,
                                                              LSFT(LGUI(LALT(LCTL(KC_2)))),
                                               KC_SPC, KC_ENT,LSFT(LGUI(LALT(LCTL(KC_3)))),
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,                             KC_BSPC,
                         KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN),                   KC_ENT,
         RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, MT(MOD_RGUI | MOD_RSFT, KC_SLSH), KC_RSFT,
-                                KC_LANG1,RALT_T(KC_LEFT),KC_DOWN,KC_UP,                           KC_RIGHT,
+                                KC_HENK,RALT_T(KC_LEFT),KC_DOWN,KC_UP,                           KC_RIGHT,
         KC__VOLUP,   TG(WIN),
         KC__VOLDOWN,
         KC__MUTE,    KC_TRNS, KC_SPC
