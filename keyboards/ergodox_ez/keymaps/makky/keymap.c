@@ -6,6 +6,7 @@
 #define BASE 0 // default layer
 #define WIN 1 //  for windows
 #define SYMB 2 // symbols
+#define WINA 3 // for windows advance
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -85,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_GRV,         KC_1,                  KC_2,   KC_3,   KC_4,   KC_5,   LSFT(LGUI(LALT(LCTL(KC_LEFT)))),
         KC_TAB,         KC_Q,                  KC_W,   KC_E,   KC_R,   KC_T,   KC_BSPC,
-        CTL_T(KC_ESC),  KC_A,                  KC_S,   KC_D,   KC_F,   KC_G,
+        LT(WINA, KC_ESC),  KC_A,                  KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT, MT(MOD_LGUI | MOD_LSFT, KC_Z),KC_X,   KC_C,   KC_V,   KC_B,   LALT(KC_BSPC),
-        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT,KC_MHEN,
+        KC_LEFT,        KC_DOWN,      KC_UP,  KC_LALT, CTL_T(KC_MHEN),
                                               TG(SYMB),      KC_LGUI,
                                                              LSFT(LGUI(LALT(LCTL(KC_2)))),
                                               KC_SPC, KC_ENT,LSFT(LGUI(LALT(LCTL(KC_3)))),
@@ -95,9 +96,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RSFT(RGUI(RALT(RCTL(KC_RIGHT)))),
                         KC_6,   KC_7,   KC_8,           KC_9,   KC_0,                             KC_DEL,
         RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,                             KC_BSPC,
-                        KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN),                   KC_ENT,
+                        KC_H,   KC_J,   KC_K,           KC_L,   KC_SCLN,                   KC_ENT,
         RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, MT(MOD_RGUI | MOD_RSFT, KC_SLSH), KC_RSFT,
-                                KC_HENK,RALT_T(KC_LEFT),KC_DOWN,KC_UP,                           KC_RIGHT,
+                                CTL_T(KC_HENK),RALT_T(KC_LEFT),KC_DOWN,KC_UP,                           KC_RIGHT,
         KC__VOLUP,   TG(WIN),
         KC__VOLDOWN,
         KC__MUTE,    KC_TRNS, KC_SPC
@@ -144,6 +145,90 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
 ),
+/* Keymap 3: for Windows Advance Layer
+ *
+ * ,---------------------------------------------------.           ,--------------------------------------------------.
+ * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
+ * |         |      |      |  End |      |      |      |           |      |      |      |      |      |  Up  |        |
+ * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |         | Home |      |      | Right|      |------|           |------|      |      |      |      |      |        |
+ * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |         |      |      |      |      | Left |      |           |      | Down |      |      |      |      |        |
+ * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |       |      |      |      |      |                                       |      |      |      |      |      |
+ *   `-----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+// Windows Advance
+[WINA] = LAYOUT_ergodox(
+       // left hand
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS ,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_END, KC_TRNS ,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_HOME,KC_TRNS,KC_TRNS,KC_RIGHT,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS ,KC_LEFT,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+                                       KC_TRNS,KC_TRNS,
+                                               KC_TRNS,
+                               KC_TRNS,KC_TRNS,KC_TRNS,
+       // right hand
+       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS,
+                KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_DOWN, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                         KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS
+),
+
+/* Keymap X: all KC_TRNS Layer for copy and paste
+ *
+ * ,---------------------------------------------------.           ,--------------------------------------------------.
+ * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
+ * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |         |      |      |      |      |      |------|           |------|      |      |      |      |      |        |
+ * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |       |      |      |      |      |                                       |      |      |      |      |      |
+ *   `-----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+// [MOCK] = LAYOUT_mock(
+//        // left hand
+//        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+//        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+//        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+//        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+//        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+//                                        KC_TRNS,KC_TRNS,
+//                                                KC_TRNS,
+//                                KC_TRNS,KC_TRNS,KC_TRNS,
+//        // right hand
+//        KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//        KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//                 KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//        KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//                          KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//        KC_TRNS, KC_TRNS,
+//        KC_TRNS,
+//        KC_TRNS, KC_TRNS, KC_TRNS
+// ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
