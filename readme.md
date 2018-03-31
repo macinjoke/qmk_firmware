@@ -1,3 +1,34 @@
+# MAKKY MEMO
+
+## USAGE
+
+## PREREQUISITE
+
+```
+brew install teensy_loader_cli
+```
+
+### EDIT
+
+```
+vim keyboards/ergodox_ez/keymaps/makky/keymap.c
+```
+
+### BUILD
+
+```
+make ergodox_ez:makky
+```
+
+### LOAD
+
+```
+teensy_loader_cli -mmcu=atmega32u4 -wv .build/ergodox_ez_makky.hex
+```
+
+And then, reset Ergodox
+
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
