@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |Back  |           | ALT+ |   Y  |   U  |   I  |   O  |   P  |BackSpace|
  * |--------+------+------+------+------+------|space |           | RIGHT|------+------+------+------+------+--------|
- * |Ctrl    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |Ctrl/;| Enter  |
+ * |Ctrl    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  | Enter  |
  * |--------+------+------+------+------+------| LAlt+|           | ALT+ |------+------+------+------+------+--------|
  * |LShift |Z/gui+sift| X |   C  |   V  |   B  |BackSp|           | LEFT |   N  |   M  |   ,  | . |//gui+sift| RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RSFT(RGUI(RALT(RCTL(KC_RIGHT)))),
                         KC_6,   KC_7,   KC_8,           KC_9,   KC_0,                             KC_DEL,
         RALT(KC_RIGHT), KC_Y,   KC_U,   KC_I,           KC_O,   KC_P,                             KC_BSPC,
-                        KC_H,   KC_J,   KC_K,           KC_L,   CTL_T(KC_SCLN),                   KC_ENT,
+                        KC_H,   KC_J,   KC_K,           KC_L,   KC_SCLN,                          KC_ENT,
         RALT(KC_LEFT),  KC_N,   KC_M,   KC_COMM,        KC_DOT, MT(MOD_RGUI | MOD_RSFT, KC_SLSH), KC_RSFT,
                                 KC_RGUI,RALT_T(KC_LEFT),KC_DOWN,KC_UP,                            KC_RIGHT,
         KC__VOLUP,   TG(WIN),
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |Back  |           | ALT+ |   Y  |   U  |   I  |   O  |   P  |BackSpace|
  * |--------+------+------+------+------+------|space |           | RIGHT|------+------+------+------+------+--------|
- * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |Ctrl/;| Enter  |
+ * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  | Enter  |
  * |--------+------+------+------+------+------| LAlt+|           | ALT+ |------+------+------+------+------+--------|
  * |LShift |Z/gui+sift| X |   C  |   V  |   B  |BackSp|           | LEFT |   N  |   M  |   ,  | . |//gui+sift| RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
