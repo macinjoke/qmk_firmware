@@ -20,6 +20,8 @@ vim keyboards/ergodox_ez/keymaps/makky/keymap.c
 make ergodox_ez:makky
 ```
 
+If failed, https://github.com/qmk/qmk_firmware/issues/4318 may help you. 
+
 ### LOAD
 
 ```
